@@ -8,8 +8,16 @@
   <p>Body</p>
   <span><%= book.body %></span>
 
-  <a href='/books/show'>Show</a>
-  <a href='/books/edit'>Edit</a>
-  <a href='/books/destroy'>Destroy</a>
+  <span>
+    <%= link_to "Show", "/books/#{book.id}" %>
+  </span>
+
+  <span>
+    <%= link_to "Edit", "/books/#{book.id}/edit" %>
+  </span>
+
+  <span>
+    <%= link_to "Destroy", "/books/#{book.id}/destroy" %>
+  </span>
 
 <% end %>
