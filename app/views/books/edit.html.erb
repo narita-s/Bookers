@@ -11,4 +11,8 @@
 
   <%= f.submit 'Update Book' %>
 
+
+  <%= link_to "Show", book_path(@book.id) %>
+  <%= link_to "Back", root_path(@book.id) %>
+
 <% end %>
