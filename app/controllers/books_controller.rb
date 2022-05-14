@@ -9,8 +9,10 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
       flash[:notice] = "Book was successfully created."
     else
-      render :new
+      @books = Book.all
+      render :index
     end
+
   end
 
   def index
@@ -32,7 +34,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
       flash[:notice] = "Book was successfully updated."
     else
-      render :edit
+      render :show
     end
 
   end
@@ -41,6 +43,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])  # データ（レコード）を1件取得
     book.destroy  # データ（レコード）を削除
     redirect_to '/books'  # 投稿一覧画面へリダイレクト
+    flash[:notice] = "Book was successfully destroyed."
   end
 
   private
